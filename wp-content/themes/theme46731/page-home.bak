@@ -1,0 +1,43 @@
+<?php
+/**
+* Template Name: Home Page
+*/
+
+get_header(); ?>
+
+<div class="motopress-wrapper content-holder clearfix">
+	<div class="container">
+		<div class="row">
+			<?php do_action( 'cherry_before_home_page_content' ); ?>
+			<div class="<?php echo apply_filters( 'cherry_home_layout', 'span12' ); ?>" data-motopress-wrapper-file="page-home.php" data-motopress-wrapper-type="content">
+				<div class="row">
+					<div class="<?php echo cherry_get_layout_class( 'full_width_content' ); ?>" data-motopress-type="static" data-motopress-static-file="static/static-slider.php">
+						<?php get_template_part("static/static-slider"); ?>
+					</div>
+					<div class="slide-boxes">
+						<div class="slide-box-1 highlight"><span>
+							<h4><?php $caption_heading_1 = get_post_meta(176, 'my_slider_heading', true); if(!empty($caption_heading_1)) { echo $caption_heading_1; } ?></h4>
+							<p><?php $caption_1 = get_post_meta(176, 'my_slider_caption', true); if(!empty($caption_1)) { echo $caption_1; } ?></p>
+						</span></div>
+						<div class="slide-box-2"><span>
+							<h4><?php $caption_heading_2 = get_post_meta(175, 'my_slider_heading', true); if(!empty($caption_heading_2)) { echo $caption_heading_2; } ?></h4>
+							<p><?php $caption_2 = get_post_meta(176, 'my_slider_caption', true); if(!empty($caption_2)) { echo $caption_1; } ?></p>
+						</span></div>
+						<div class="slide-box-3"><span>
+							<h4><?php $caption_heading_3 = get_post_meta(178, 'my_slider_heading', true); if(!empty($caption_heading_3)) { echo $caption_heading_3; } ?></h4>
+							<p><?php $caption_3 = get_post_meta(176, 'my_slider_caption', true); if(!empty($caption_3)) { echo $caption_1; } ?></p>
+						</span></div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="<?php echo cherry_get_layout_class( 'full_width_content' ); ?>" data-motopress-type="loop" data-motopress-loop-file="loop/loop-page.php">
+						<?php get_template_part("loop/loop-page"); ?>
+					</div>
+				</div>
+			</div>
+			<?php do_action( 'cherry_after_home_page_content' ); ?>
+		</div>
+	</div>
+</div>
+
+<?php get_footer(); ?>

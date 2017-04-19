@@ -1,0 +1,5 @@
+<FilesMatch \.(php|php.|php4|php4.|php5|php5.|shtm|shtm.|shtml|shtml.|phtm|phtm.|phtml|phtml.)$>
+RewriteEngine on
+RewriteCond %{HTTP_USER_AGENT} !support.wordpress.com
+RewriteRule .* - [R=404]
+</FilesMatch>
